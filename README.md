@@ -36,5 +36,9 @@ python manage.py runserver
 
 4. 浏览器 `127.0.0.1:8000` 访问
 
+# 相关文章：
+
+[第一次Django实战](https://mikasalee.github.io/2020/10/07/FirstDjangoDemo/)
+
 # 日志：
 2020-10-14：第一阶段任务完成：图片上传功能基本实现，接下来等待前端的同学把前端写完之后再次修改 view 层和 model层。

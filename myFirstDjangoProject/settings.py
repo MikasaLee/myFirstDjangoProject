@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 以下是自定义的模块
-    'photo'
+    'photo.apps.PhotoConfig'
 
 ]
 
@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
- #   'django.middleware.csrf.CsrfViewMiddleware',               # csrf 跨站请求伪造 先关闭
+    'django.middleware.csrf.CsrfViewMiddleware',               # csrf 跨站请求伪造
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -58,8 +58,7 @@ ROOT_URLCONF = 'myFirstDjangoProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,18 +76,23 @@ WSGI_APPLICATION = 'myFirstDjangoProject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': "myFirstDjangoDB",
+#         'HOST':"127.0.0.1",
+#         "USER":'root',
+#         "PASSWORD":"redhat",
+#         "PORT":3306,
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "myFirstDjangoDB",
-        'HOST':"127.0.0.1",
-        "USER":'root',
-        "PASSWORD":"redhat",
-        "PORT":3306,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

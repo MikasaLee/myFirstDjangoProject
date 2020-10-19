@@ -1,12 +1,11 @@
 ﻿<!DOCTYPE html>
-<html lang="zxx">
+{#<html lang="zxx">#}
+<html>
 
 <head>
     <title></title>
     {% include '_heads.html' %}
-
 </head>
-
 <body>
 
 	<!-- START PRELOADER -->
@@ -238,7 +237,10 @@
 <!--									<h2>PROVIDING</h2>-->
 									<h2>Hypertension risk prediction</h2>
 									<span><i class="icofont icofont-plus"></i> 获得个人报告</span>
-									<a href="{%url 'photo:upload' %}" class="home-btn-1">上传图片</a>   <!--'photo:upload' 引号和冒号 -->
+									<a href="{%url 'app_name_photo:path_upload' %}" class="home-btn-1">上传图片</a>   <!--'photo:upload' 引号和冒号 -->
+                                    {% if success_message %}
+                                        <p>aaa{{ success_message }}</p>
+                                    {% endif %}
 									<a href="reports.html" class="home-btn-2">报告结果</a>
 								</div>
 							</div>

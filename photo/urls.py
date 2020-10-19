@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
-from photo import views as photo
+from django.urls import path
+from . import views
 
-app_name = 'photo'
+app_name = 'app_name_photo'  # 为 {% url %} 服务，为了测试，故意加了app_name，正常来说直接和模块名称一样就可以
 
 urlpatterns = [
-    url(r'^upload/$',photo.upload,name="upload"),
-    url(r'^result/$',photo.result,name="result"),
+#    url(r'^upload/$',photo.upload,name="upload"),
+#    url(r'^result/$',photo.result,name="result"),
+    path('',views.index,name="index"),
+    path('upload/',views.upload,name='path_upload'),     # name 也是为了 {% url %} 服务,同理前面加 path 也是为了测试
+    path('result/',views.result,name='result'),
 ]

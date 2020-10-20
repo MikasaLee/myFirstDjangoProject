@@ -3,8 +3,10 @@
 
 # 安装
 
+0. 需要先安装 anacnoda 。
 1. 按照个人的习惯将项目导入 pycharm 中。
-2. environment.yml 是该项目导出的 conda 环境。所以在 pycharm 中的命令行运行 
+2. environment.yml 是该项目导出的 conda 环境。所以在 pycharm 中的命令行运行
+
 
 ```python
 conda env create -f environment.yml
@@ -12,14 +14,27 @@ conda env create -f environment.yml
 
 等待时间应该比较长，毕竟要下载相关的第三方包，耐心等待即可。
 
-3. 将 settings.py 中数据库的名称用户密码更改为自己的。
+以下 3 和 4 是关于后台用哪个数据库的，选一个安装即可。
+
+3. sqlite3：
+  
+   + 将 settings.py 中 Databases 段的 sqlite3 打开并且注释掉 mysql。
+   + 并且 `__init__.py` 中不需要任何代码。
+    
+4. mysql8.0: 
+  
+   + 请先安装 mysql8.0。
+   + 然后将 settings.py 中 `Databases` 字段的 mysql 的打开并且注释掉 sqlite3。
+   + 在 mysql8.0 中先创建好你的数据库。然后将 `Databases` 字段中的 `PASSWORD` 和 `NAME` 更改为 mysql 的密码和数据库名。
+   + 并且请打开 `__init__.py` 中的注释
 
 # 运行
-0. 确保 mysql8.0 服务启动并创建该数据库。
+
+0. 如果是 mysql8.0：请确保 mysql8.0 服务启动并已创建了该数据库。
 1. 导入的环境名为：myDjangoEnv，所以进入到环境中:
 
 ```python
-activate  myDjangoEnv` 
+activate  myDjangoEnv 
 
 ```
 

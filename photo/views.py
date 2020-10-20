@@ -25,8 +25,8 @@ def result(request):
         presult = 0.00
         pinfo = "no info"
         if photo:
-            photoModel = Photo.objects.create(photoName=pname,userId=uid,photoUrl=purl,photoResult=presult,photoInfo=pinfo)
-            save_file(photo,pname,purl)
+#           photoModel = Photo.objects.create(photoName=pname,userId=uid,photoUrl=purl,photoResult=presult,photoInfo=pinfo)
+#            save_file(photo,pname,purl)
             request.session['success_message'] = '1'
             return HttpResponseRedirect(reverse('app_name_photo:index'))
     return render(request,'appointment.html',{

@@ -40,17 +40,9 @@ activate  myDjangoEnv
 
 2. 在数据库中创建表:
 
-    sqlite3 请使用:
-    
-    ```python
-    python manage.py migrate
-    ```
-    mysql8.0 请使用:
-    
-    ```python
-    python manage.py migrate --database=mysqlDB
-    ```
-
+```python
+python manage.py migrate
+```
 
 3. 启动服务:
 ```python

@@ -19,14 +19,18 @@ def result(request):
     if request.method == "POST":
         # 得到图片
         photo = request.FILES.get('photo')
-        pname = request.POST.get('photoName')
+        pname = photo.name
         uid = -1
         purl = FileSave_DIR
         presult = 0.00
         pinfo = "no info"
+        if Photo.objects.filter(photoName=pname):
+            return render(request, 'appointment.html', {
+                'error_message': '图片上传失败!,重名了'
+            })
         if photo:
-#           photoModel = Photo.objects.create(photoName=pname,userId=uid,photoUrl=purl,photoResult=presult,photoInfo=pinfo)
-#            save_file(photo,pname,purl)
+            photoModel = Photo.objects.create(photoName=pname,userId=uid,photoUrl=purl,photoResult=presult,photoInfo=pinfo)
+            save_file(photo,purl)
             request.session['success_message'] = '1'
             return HttpResponseRedirect(reverse('app_name_photo:index'))
     return render(request,'appointment.html',{

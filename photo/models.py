@@ -9,7 +9,7 @@ class Photo(models.Model):
     photoResult = models.FloatField()
     photoInfo = models.CharField(max_length=128)
 
-    class Meta:
+    class Meta:     # 关于 Meta： https://docs.djangoproject.com/zh-hans/3.1/topics/db/models/#meta-options
         db_table = "photo"
 
     def __str__(self):
